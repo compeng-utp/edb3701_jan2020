@@ -1,0 +1,73 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nThe following R libraries have been installed using command \"install.packages(\"package name\")\"\nggalt\nggfortify\ncaret\nlattice\nggplot2",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:22:59.575",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eThe following R libraries have been installed using command \u0026ldquo;install.packages(\u0026rdquo;package name\u0026ldquo;)\u0026rdquo;\u003cbr/\u003eggalt\u003cbr/\u003eggfortify\u003cbr/\u003ecaret\u003cbr/\u003elattice\u003cbr/\u003eggplot2\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1576567154993_898581375",
+      "id": "20191217-071914_2141350449",
+      "dateCreated": "2019-12-17 07:19:14.993",
+      "dateStarted": "2019-12-17 07:22:59.575",
+      "dateFinished": "2019-12-17 07:23:01.962",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.r\n",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:19:47.068",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1576567187063_139853646",
+      "id": "20191217-071947_1866692985",
+      "dateCreated": "2019-12-17 07:19:47.063",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "R_installer",
+  "id": "2EVXYFKUB",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "md:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
