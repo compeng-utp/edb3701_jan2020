@@ -1,0 +1,308 @@
+{
+  "paragraphs": [
+    {
+      "text": "import org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.nio.charset.Charset\n\n//WORKING\n\n// load bank data\nval txt \u003d sc.parallelize(\n    IOUtils.toString(\n        new URL(\"file:///zeppelin/data/Cities.txt\"),\n        Charset.forName(\"utf8\")).split(\"\\n\"),1)\n\ntxt.map(s\u003d\u003e1).reduce((a,b)\u003d\u003e a+b)",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.082",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.commons.io.IOUtils\nimport java.net.URL\nimport java.nio.charset.Charset\ntxt: org.apache.spark.rdd.RDD[String] \u003d ParallelCollectionRDD[0] at parallelize at \u003cconsole\u003e:31\nres6: Int \u003d 16272\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983082_1216469510",
+      "id": "20191120-093237_488164113",
+      "dateCreated": "2019-12-17 07:16:23.082",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "1) How many words are in the file?",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.083",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983083_-791205374",
+      "id": "20191120-093302_538902603",
+      "dateCreated": "2019-12-17 07:16:23.083",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.083",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983083_-210260877",
+      "id": "20191120-093901_52833882",
+      "dateCreated": "2019-12-17 07:16:23.083",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val allwords \u003d txt.flatMap(s\u003d\u003es.split(\" +\"))\nallwords.count\n",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.083",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "allwords: org.apache.spark.rdd.RDD[String] \u003d MapPartitionsRDD[8] at flatMap at \u003cconsole\u003e:33\nres16: Long \u003d 142622\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983083_2092682066",
+      "id": "20191120-093421_1723837686",
+      "dateCreated": "2019-12-17 07:16:23.083",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "2) How many unique words are in the file?",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.084",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983083_1838528095",
+      "id": "20191120-093445_2101665471",
+      "dateCreated": "2019-12-17 07:16:23.083",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val uniquewords \u003d allwords.map(s\u003d\u003e(s,1)).reduceByKey((a,b)\u003d\u003ea+b)\nuniquewords.count\n",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.084",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "uniquewords: org.apache.spark.rdd.RDD[(String, Int)] \u003d ShuffledRDD[10] at reduceByKey at \u003cconsole\u003e:35\nres18: Long \u003d 22414\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983084_1761665766",
+      "id": "20191120-093557_1494312940",
+      "dateCreated": "2019-12-17 07:16:23.084",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "3) Which word is used the most often and how many times?",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.084",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983084_1053282917",
+      "id": "20191120-093644_1141350688",
+      "dateCreated": "2019-12-17 07:16:23.084",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "uniquewords.reduce((a,b)\u003d\u003e if (a._2\u003e b._2) a else b)",
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.084",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res20: (String, Int) \u003d (the,6858)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983084_1908324107",
+      "id": "20191120-094058_285482787",
+      "dateCreated": "2019-12-17 07:16:23.084",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "instruct",
+      "dateUpdated": "2019-12-17 07:16:23.085",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1576566983084_-634886426",
+      "id": "20191120-094137_1998341542",
+      "dateCreated": "2019-12-17 07:16:23.084",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Test_Answer",
+  "id": "2EVWQ4RY6",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
